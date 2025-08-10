@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>3a Cloud Gaming</title>
+  <style>
+    :root{
+      --bg1: #0f172a;
+      --bg2: #071035;
+      --card: rgba(255,255,255,0.06);
+      --accent: linear-gradient(90deg,#7c3aed 0%, #06b6d4 100%);
+      --glass: rgba(255,255,255,0.04);
+      --text: #e6eef8;
+      --muted: #9fb2cc;
+      --radius: 14px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 20%, rgba(124,58,237,0.12), transparent 10%),
+                  radial-gradient(900px 500px at 90% 80%, rgba(6,182,212,0.08), transparent 10%),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .container{width:100%;max-width:1100px}
+
+    .header{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+    .badge{
+      padding:10px 14px;
+      border-radius:999px;
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,0.04);
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+    }
+    .badge .dot{
+      width:12px;height:12px;border-radius:50%;
+      background:linear-gradient(180deg,#06b6d4,#7c3aed);
+      box-shadow:0 4px 12px rgba(6,182,212,0.18);
+    }
+    h1{margin:0;font-size:20px;letter-spacing:0.6px}
+    .header p{margin:0;color:var(--muted);font-size:13px}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px,1fr));
+      gap:22px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,0.04);
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      display:flex;
+      flex-direction:column;
+      transition:transform .28s, box-shadow .28s;
+    }
+    .card:hover{
+      transform:translateY(-8px) scale(1.01);
+      box-shadow: 0 18px 50px rgba(2,6,23,0.7);
+    }
+    .thumb{
+      width:100%;
+      aspect-ratio:16/9;
+      object-fit:cover;
+      transition:transform .6s;
+    }
+    .card:hover .thumb{transform:scale(1.03)}
+    .card-body{
+      padding:16px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .meta{display:flex;flex-direction:column;gap:6px}
+    .title{font-weight:600;font-size:16px}
+    .subtitle{font-size:13px;color:var(--muted)}
+    .play-btn{
+      background:var(--accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      border: none;
+      padding:10px 14px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:700;
+      font-size:14px;
+      background-image:var(--accent);
+      color:white;
+      box-shadow: 0 8px 24px rgba(92,33,224,0.18);
+      transition:transform .18s, box-shadow .18s;
+    }
+    .play-btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(92,33,224,0.22)}
+    .note{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="badge"><div class="dot"></div><strong>3a</strong></div>
+      <div>
+        <h1>3a Cloud Gaming</h1>
+        <p>Nikmati game favoritmu dari cloud — langsung main tanpa install.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Miside -->
+      <article class="card">
+        <img class="thumb" src="download (2).jpeg" alt="Miside">
+        <div class="card-body">
+          <div class="meta">
+            <div class="title">Miside</div>
+            <div class="subtitle">Arcade / Action — Cloud ready</div>
+          </div>
+          <button class="play-btn" data-href="https://inigamingyah.github.io/Midsides/" onclick="openGame(this)">▶ Play Game</button>
+        </div>
+      </article>
+
+      <!-- GTA V -->
+      <article class="card">
+        <img class="thumb" src="download (3).jpeg" alt="GTA V">
+        <div class="card-body">
+          <div class="meta">
+            <div class="title">Grand Theft Auto V</div>
+            <div class="subtitle">Open world action — Kota penuh keseruan</div>
+          </div>
+          <button class="play-btn" data-href="https://fackied.github.io/nama/" onclick="openGame(this)">▶ Play Game</button>
+        </div>
+      </article>
+
+      <!-- GTA VI -->
+      <article class="card">
+        <img class="thumb" src="download (4).jpeg" alt="GTA VI">
+        <div class="card-body">
+          <div class="meta">
+            <div class="title">Grand Theft Auto VI</div>
+            <div class="subtitle">Next-gen open world (cloud demo)</div>
+          </div>
+          <button class="play-btn" data-href="https://apkbr.github.io/Hai.com/" onclick="openGame(this)">▶ Play Game</button>
+        </div>
+      </article>
+    </div>
+
+    <p class="note">Tip: made by<code> ericbubu</code> official</p>
+  </div>
+
+  <script>
+    function openGame(btn){
+      const href = btn.getAttribute('data-href') || '#';
+      if(href === '#' || !href.trim()){
+        alert('Ganti data-href tombol ini dengan link game!');
+      } else {
+        window.open(href, '_blank', 'noopener');
+      }
+    }
+  </script>
+</body>
+</html>
